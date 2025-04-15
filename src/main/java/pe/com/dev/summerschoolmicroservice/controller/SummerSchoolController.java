@@ -12,7 +12,7 @@ import pe.com.dev.summerschoolmicroservice.model.filter.SummerSchoolFilter;
 import pe.com.dev.summerschoolmicroservice.service.SummerSchoolService;
 
 @RestController
-@RequestMapping("/summer-school")
+@RequestMapping("/api/v1/summer-school")
 @RequiredArgsConstructor
 public class SummerSchoolController {
     private final SummerSchoolService summerSchoolService;
@@ -27,7 +27,7 @@ public class SummerSchoolController {
         return summerSchoolService.findById(id);
     }
 
-    @GetMapping("/api/v1/schools")
+    @GetMapping("/filter")
     public Page<SummerSchool> getSummerSchools(
             @ModelAttribute SummerSchoolFilter filter,
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
