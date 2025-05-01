@@ -21,9 +21,7 @@ COPY --from=builder /app/target/summer-school-api.jar ./app.jar
 COPY .env .env
 
 # Exponer el puerto definido dinámicamente
-ARG SERVER_PORT
-ENV SERVER_PORT=${SERVER_PORT}
-EXPOSE ${SERVER_PORT}
+EXPOSE 8080
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["sh", "-c", "java -jar app.jar"]
